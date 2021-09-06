@@ -1,0 +1,122 @@
+2190
+INFO:transformers.tokenization_utils_base:Model name '/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190' not found in model shortcut name list (albert-base-v1, albert-large-v1, albert-xlarge-v1, albert-xxlarge-v1, albert-base-v2, albert-large-v2, albert-xlarge-v2, albert-xxlarge-v2). Assuming '/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO:transformers.tokenization_utils_base:Didn't find file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/added_tokens.json. We won't load it.
+INFO:transformers.tokenization_utils_base:Didn't find file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/tokenizer.json. We won't load it.
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/spiece.model
+INFO:transformers.tokenization_utils_base:loading file None
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/special_tokens_map.json
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/tokenizer_config.json
+INFO:transformers.tokenization_utils_base:loading file None
+INFO:transformers.configuration_utils:loading configuration file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/config.json
+INFO:transformers.configuration_utils:Model config AlbertConfig {
+  "architectures": [
+    "AlbertForCauseEffect"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "eos_token_ids": null,
+  "gap_size": 0,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 16384,
+  "layer_norm_eps": 1e-12,
+  "layers_to_keep": [],
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 64,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "output_past": true,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO:transformers.modeling_utils:loading weights file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/pytorch_model.bin
+INFO:transformers.modeling_utils:All model checkpoint weights were used when initializing AlbertForCauseEffect.
+
+INFO:transformers.modeling_utils:All the weights of AlbertForCauseEffect were initialized from the model checkpoint at /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use AlbertForCauseEffect for predictions without further training.
+0it [00:00, ?it/s]18it [00:00, 170.06it/s]42it [00:00, 185.15it/s]71it [00:00, 205.78it/s]100it [00:00, 223.75it/s]124it [00:00, 227.70it/s]148it [00:00, 230.36it/s]170it [00:00, 226.53it/s]197it [00:00, 235.78it/s]223it [00:00, 240.84it/s]247it [00:01, 234.56it/s]271it [00:01, 231.57it/s]295it [00:01, 221.90it/s]321it [00:01, 231.57it/s]345it [00:01, 229.81it/s]369it [00:01, 229.92it/s]395it [00:01, 237.64it/s]422it [00:01, 243.05it/s]450it [00:01, 252.38it/s]477it [00:01, 256.71it/s]505it [00:02, 262.35it/s]538it [00:02, 276.83it/s]567it [00:02, 277.64it/s]595it [00:02, 260.43it/s]624it [00:02, 267.07it/s]638it [00:02, 248.92it/s]/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190
+
+The current process just got forked. Disabling parallelism to avoid deadlocks...
+To disable this warning, please explicitly set TOKENIZERS_PARALLELISM=(true | false)
+convert squad examples to features:   0%|          | 0/638 [00:00<?, ?it/s]convert squad examples to features:   0%|          | 1/638 [00:00<01:23,  7.62it/s]convert squad examples to features:   5%|▌         | 33/638 [00:00<00:56, 10.76it/s]convert squad examples to features:  10%|█         | 65/638 [00:00<00:37, 15.12it/s]convert squad examples to features:  15%|█▌        | 97/638 [00:00<00:25, 21.07it/s]convert squad examples to features:  20%|██        | 129/638 [00:00<00:17, 29.05it/s]convert squad examples to features:  25%|██▌       | 161/638 [00:00<00:12, 39.59it/s]convert squad examples to features:  30%|███       | 193/638 [00:00<00:08, 53.01it/s]convert squad examples to features:  35%|███▌      | 225/638 [00:00<00:05, 69.30it/s]convert squad examples to features:  40%|████      | 257/638 [00:01<00:04, 86.01it/s]convert squad examples to features:  45%|████▌     | 289/638 [00:01<00:03, 106.41it/s]convert squad examples to features:  50%|█████     | 321/638 [00:01<00:02, 128.36it/s]convert squad examples to features:  55%|█████▌    | 353/638 [00:01<00:01, 150.99it/s]convert squad examples to features:  60%|██████    | 385/638 [00:01<00:01, 169.07it/s]convert squad examples to features:  65%|██████▌   | 417/638 [00:01<00:01, 186.63it/s]convert squad examples to features:  70%|███████   | 449/638 [00:01<00:00, 208.07it/s]convert squad examples to features:  75%|███████▌  | 481/638 [00:02<00:00, 217.09it/s]convert squad examples to features:  80%|████████  | 513/638 [00:02<00:00, 237.47it/s]convert squad examples to features:  85%|████████▌ | 545/638 [00:02<00:00, 237.68it/s]convert squad examples to features:  90%|█████████ | 577/638 [00:02<00:00, 236.61it/s]convert squad examples to features:  95%|█████████▌| 609/638 [00:02<00:00, 243.50it/s]convert squad examples to features: 100%|██████████| 638/638 [00:02<00:00, 249.43it/s]
+add example index and unique id:   0%|          | 0/638 [00:00<?, ?it/s]add example index and unique id: 100%|██████████| 638/638 [00:00<00:00, 505280.58it/s]
+INFO:src.evaluation:***** Running evaluation  *****
+INFO:src.evaluation:  Num examples = 638
+INFO:src.evaluation:  Batch size = 8
+Evaluating:   0%|          | 0/80 [00:00<?, ?it/s]Evaluating:   1%|▏         | 1/80 [00:01<02:03,  1.57s/it]Evaluating:   2%|▎         | 2/80 [00:02<01:52,  1.44s/it]Evaluating:   4%|▍         | 3/80 [00:03<01:43,  1.35s/it]Evaluating:   5%|▌         | 4/80 [00:04<01:37,  1.29s/it]Evaluating:   6%|▋         | 5/80 [00:06<01:33,  1.24s/it]Evaluating:   8%|▊         | 6/80 [00:07<01:29,  1.21s/it]Evaluating:   9%|▉         | 7/80 [00:08<01:27,  1.19s/it]Evaluating:  10%|█         | 8/80 [00:09<01:24,  1.18s/it]Evaluating:  11%|█▏        | 9/80 [00:10<01:22,  1.17s/it]Evaluating:  12%|█▎        | 10/80 [00:11<01:21,  1.16s/it]Evaluating:  14%|█▍        | 11/80 [00:13<01:19,  1.16s/it]Evaluating:  15%|█▌        | 12/80 [00:14<01:18,  1.15s/it]Evaluating:  16%|█▋        | 13/80 [00:15<01:17,  1.15s/it]Evaluating:  18%|█▊        | 14/80 [00:16<01:15,  1.15s/it]Evaluating:  19%|█▉        | 15/80 [00:17<01:14,  1.15s/it]Evaluating:  20%|██        | 16/80 [00:18<01:13,  1.15s/it]Evaluating:  21%|██▏       | 17/80 [00:19<01:12,  1.15s/it]Evaluating:  22%|██▎       | 18/80 [00:21<01:11,  1.15s/it]Evaluating:  24%|██▍       | 19/80 [00:22<01:10,  1.15s/it]Evaluating:  25%|██▌       | 20/80 [00:23<01:09,  1.15s/it]Evaluating:  26%|██▋       | 21/80 [00:24<01:07,  1.15s/it]Evaluating:  28%|██▊       | 22/80 [00:25<01:06,  1.15s/it]Evaluating:  29%|██▉       | 23/80 [00:26<01:05,  1.15s/it]Evaluating:  30%|███       | 24/80 [00:27<01:04,  1.15s/it]Evaluating:  31%|███▏      | 25/80 [00:29<01:03,  1.15s/it]Evaluating:  32%|███▎      | 26/80 [00:30<01:02,  1.15s/it]Evaluating:  34%|███▍      | 27/80 [00:31<01:01,  1.15s/it]Evaluating:  35%|███▌      | 28/80 [00:32<01:00,  1.15s/it]Evaluating:  36%|███▋      | 29/80 [00:33<00:58,  1.15s/it]Evaluating:  38%|███▊      | 30/80 [00:34<00:57,  1.15s/it]Evaluating:  39%|███▉      | 31/80 [00:36<00:56,  1.16s/it]Evaluating:  40%|████      | 32/80 [00:37<00:55,  1.15s/it]Evaluating:  41%|████▏     | 33/80 [00:38<00:54,  1.16s/it]Evaluating:  42%|████▎     | 34/80 [00:39<00:53,  1.16s/it]Evaluating:  44%|████▍     | 35/80 [00:40<00:52,  1.16s/it]Evaluating:  45%|████▌     | 36/80 [00:41<00:50,  1.16s/it]Evaluating:  46%|████▋     | 37/80 [00:42<00:49,  1.16s/it]Evaluating:  48%|████▊     | 38/80 [00:44<00:48,  1.16s/it]Evaluating:  49%|████▉     | 39/80 [00:45<00:47,  1.16s/it]Evaluating:  50%|█████     | 40/80 [00:46<00:46,  1.16s/it]Evaluating:  51%|█████▏    | 41/80 [00:47<00:45,  1.16s/it]Evaluating:  52%|█████▎    | 42/80 [00:48<00:43,  1.16s/it]Evaluating:  54%|█████▍    | 43/80 [00:49<00:42,  1.16s/it]Evaluating:  55%|█████▌    | 44/80 [00:51<00:41,  1.16s/it]Evaluating:  56%|█████▋    | 45/80 [00:52<00:40,  1.16s/it]Evaluating:  57%|█████▊    | 46/80 [00:53<00:39,  1.16s/it]Evaluating:  59%|█████▉    | 47/80 [00:54<00:38,  1.16s/it]Evaluating:  60%|██████    | 48/80 [00:55<00:37,  1.16s/it]Evaluating:  61%|██████▏   | 49/80 [00:56<00:35,  1.16s/it]Evaluating:  62%|██████▎   | 50/80 [00:58<00:34,  1.16s/it]Evaluating:  64%|██████▍   | 51/80 [00:59<00:33,  1.16s/it]Evaluating:  65%|██████▌   | 52/80 [01:00<00:32,  1.16s/it]Evaluating:  66%|██████▋   | 53/80 [01:01<00:31,  1.16s/it]Evaluating:  68%|██████▊   | 54/80 [01:02<00:30,  1.16s/it]Evaluating:  69%|██████▉   | 55/80 [01:03<00:28,  1.16s/it]Evaluating:  70%|███████   | 56/80 [01:05<00:27,  1.16s/it]Evaluating:  71%|███████▏  | 57/80 [01:06<00:26,  1.16s/it]Evaluating:  72%|███████▎  | 58/80 [01:07<00:25,  1.16s/it]Evaluating:  74%|███████▍  | 59/80 [01:08<00:24,  1.16s/it]Evaluating:  75%|███████▌  | 60/80 [01:09<00:23,  1.16s/it]Evaluating:  76%|███████▋  | 61/80 [01:10<00:22,  1.16s/it]Evaluating:  78%|███████▊  | 62/80 [01:11<00:20,  1.16s/it]Evaluating:  79%|███████▉  | 63/80 [01:13<00:19,  1.16s/it]Evaluating:  80%|████████  | 64/80 [01:14<00:18,  1.16s/it]Evaluating:  81%|████████▏ | 65/80 [01:15<00:17,  1.16s/it]Evaluating:  82%|████████▎ | 66/80 [01:16<00:16,  1.16s/it]Evaluating:  84%|████████▍ | 67/80 [01:17<00:15,  1.16s/it]Evaluating:  85%|████████▌ | 68/80 [01:18<00:13,  1.16s/it]Evaluating:  86%|████████▋ | 69/80 [01:20<00:12,  1.16s/it]Evaluating:  88%|████████▊ | 70/80 [01:21<00:11,  1.16s/it]Evaluating:  89%|████████▉ | 71/80 [01:22<00:10,  1.16s/it]Evaluating:  90%|█████████ | 72/80 [01:23<00:09,  1.16s/it]Evaluating:  91%|█████████▏| 73/80 [01:24<00:08,  1.16s/it]Evaluating:  92%|█████████▎| 74/80 [01:25<00:06,  1.16s/it]Evaluating:  94%|█████████▍| 75/80 [01:27<00:05,  1.16s/it]Evaluating:  95%|█████████▌| 76/80 [01:28<00:04,  1.16s/it]Evaluating:  96%|█████████▋| 77/80 [01:29<00:03,  1.16s/it]Evaluating:  98%|█████████▊| 78/80 [01:30<00:02,  1.16s/it]Evaluating:  99%|█████████▉| 79/80 [01:31<00:01,  1.16s/it]Evaluating: 100%|██████████| 80/80 [01:32<00:00,  1.08s/it]Evaluating: 100%|██████████| 80/80 [01:32<00:00,  1.16s/it]
+INFO:src.evaluation:Writing predictions to: /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/predictions.json
+INFO:src.evaluation:Writing nbest to: /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-2190/nbest_predictions.json
+done
+5772
+INFO:transformers.tokenization_utils_base:Model name '/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772' not found in model shortcut name list (albert-base-v1, albert-large-v1, albert-xlarge-v1, albert-xxlarge-v1, albert-base-v2, albert-large-v2, albert-xlarge-v2, albert-xxlarge-v2). Assuming '/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO:transformers.tokenization_utils_base:Didn't find file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/added_tokens.json. We won't load it.
+INFO:transformers.tokenization_utils_base:Didn't find file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/tokenizer.json. We won't load it.
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/spiece.model
+INFO:transformers.tokenization_utils_base:loading file None
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/special_tokens_map.json
+INFO:transformers.tokenization_utils_base:loading file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/tokenizer_config.json
+INFO:transformers.tokenization_utils_base:loading file None
+INFO:transformers.configuration_utils:loading configuration file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/config.json
+INFO:transformers.configuration_utils:Model config AlbertConfig {
+  "architectures": [
+    "AlbertForCauseEffect"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "eos_token_ids": null,
+  "gap_size": 0,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 16384,
+  "layer_norm_eps": 1e-12,
+  "layers_to_keep": [],
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 64,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "output_past": true,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+INFO:transformers.modeling_utils:loading weights file /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/pytorch_model.bin
+INFO:transformers.modeling_utils:All model checkpoint weights were used when initializing AlbertForCauseEffect.
+
+INFO:transformers.modeling_utils:All the weights of AlbertForCauseEffect were initialized from the model checkpoint at /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use AlbertForCauseEffect for predictions without further training.
+0it [00:00, ?it/s]17it [00:00, 168.64it/s]40it [00:00, 182.66it/s]66it [00:00, 200.42it/s]93it [00:00, 215.57it/s]120it [00:00, 228.94it/s]142it [00:00, 225.65it/s]164it [00:00, 221.69it/s]189it [00:00, 229.15it/s]212it [00:00, 229.15it/s]236it [00:01, 231.84it/s]262it [00:01, 235.85it/s]286it [00:01, 217.17it/s]314it [00:01, 230.53it/s]338it [00:01, 228.28it/s]362it [00:01, 224.92it/s]387it [00:01, 229.58it/s]415it [00:01, 240.21it/s]443it [00:01, 249.59it/s]469it [00:01, 250.40it/s]499it [00:02, 262.84it/s]527it [00:02, 266.05it/s]558it [00:02, 275.51it/s]586it [00:02, 261.10it/s]613it [00:02, 261.15it/s]638it [00:02, 245.24it/s]/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772
+
+The current process just got forked. Disabling parallelism to avoid deadlocks...
+To disable this warning, please explicitly set TOKENIZERS_PARALLELISM=(true | false)
+convert squad examples to features:   0%|          | 0/638 [00:00<?, ?it/s]convert squad examples to features:   0%|          | 1/638 [00:00<01:26,  7.34it/s]convert squad examples to features:   5%|▌         | 33/638 [00:00<00:58, 10.36it/s]convert squad examples to features:  10%|█         | 65/638 [00:00<00:39, 14.56it/s]convert squad examples to features:  15%|█▌        | 97/638 [00:00<00:26, 20.29it/s]convert squad examples to features:  20%|██        | 129/638 [00:00<00:18, 27.96it/s]convert squad examples to features:  25%|██▌       | 161/638 [00:00<00:12, 38.02it/s]convert squad examples to features:  30%|███       | 193/638 [00:00<00:08, 50.81it/s]convert squad examples to features:  35%|███▌      | 225/638 [00:01<00:06, 66.20it/s]convert squad examples to features:  40%|████      | 257/638 [00:01<00:04, 81.85it/s]convert squad examples to features:  45%|████▌     | 289/638 [00:01<00:03, 100.86it/s]convert squad examples to features:  50%|█████     | 321/638 [00:01<00:02, 121.23it/s]convert squad examples to features:  55%|█████▌    | 353/638 [00:01<00:02, 141.97it/s]convert squad examples to features:  60%|██████    | 385/638 [00:01<00:01, 158.51it/s]convert squad examples to features:  65%|██████▌   | 417/638 [00:01<00:01, 174.48it/s]convert squad examples to features:  70%|███████   | 449/638 [00:02<00:00, 192.91it/s]convert squad examples to features:  75%|███████▌  | 481/638 [00:02<00:00, 198.04it/s]convert squad examples to features:  80%|████████  | 513/638 [00:02<00:00, 217.93it/s]convert squad examples to features:  85%|████████▌ | 545/638 [00:02<00:00, 225.47it/s]convert squad examples to features:  90%|█████████ | 577/638 [00:02<00:00, 224.71it/s]convert squad examples to features:  95%|█████████▌| 609/638 [00:02<00:00, 230.44it/s]convert squad examples to features: 100%|██████████| 638/638 [00:02<00:00, 233.55it/s]
+add example index and unique id:   0%|          | 0/638 [00:00<?, ?it/s]add example index and unique id: 100%|██████████| 638/638 [00:00<00:00, 550383.78it/s]
+INFO:src.evaluation:***** Running evaluation  *****
+INFO:src.evaluation:  Num examples = 638
+INFO:src.evaluation:  Batch size = 8
+Evaluating:   0%|          | 0/80 [00:00<?, ?it/s]Evaluating:   1%|▏         | 1/80 [00:01<02:04,  1.57s/it]Evaluating:   2%|▎         | 2/80 [00:02<01:52,  1.45s/it]Evaluating:   4%|▍         | 3/80 [00:03<01:44,  1.36s/it]Evaluating:   5%|▌         | 4/80 [00:05<01:38,  1.30s/it]Evaluating:   6%|▋         | 5/80 [00:06<01:34,  1.26s/it]Evaluating:   8%|▊         | 6/80 [00:07<01:30,  1.22s/it]Evaluating:   9%|▉         | 7/80 [00:08<01:27,  1.20s/it]Evaluating:  10%|█         | 8/80 [00:09<01:25,  1.19s/it]Evaluating:  11%|█▏        | 9/80 [00:10<01:23,  1.18s/it]Evaluating:  12%|█▎        | 10/80 [00:11<01:22,  1.17s/it]Evaluating:  14%|█▍        | 11/80 [00:13<01:20,  1.17s/it]Evaluating:  15%|█▌        | 12/80 [00:14<01:19,  1.17s/it]Evaluating:  16%|█▋        | 13/80 [00:15<01:17,  1.16s/it]Evaluating:  18%|█▊        | 14/80 [00:16<01:16,  1.16s/it]Evaluating:  19%|█▉        | 15/80 [00:17<01:15,  1.16s/it]Evaluating:  20%|██        | 16/80 [00:18<01:14,  1.16s/it]Evaluating:  21%|██▏       | 17/80 [00:20<01:13,  1.16s/it]Evaluating:  22%|██▎       | 18/80 [00:21<01:11,  1.16s/it]Evaluating:  24%|██▍       | 19/80 [00:22<01:10,  1.16s/it]Evaluating:  25%|██▌       | 20/80 [00:23<01:09,  1.16s/it]Evaluating:  26%|██▋       | 21/80 [00:24<01:08,  1.16s/it]Evaluating:  28%|██▊       | 22/80 [00:25<01:07,  1.16s/it]Evaluating:  29%|██▉       | 23/80 [00:27<01:06,  1.16s/it]Evaluating:  30%|███       | 24/80 [00:28<01:04,  1.16s/it]Evaluating:  31%|███▏      | 25/80 [00:29<01:03,  1.16s/it]Evaluating:  32%|███▎      | 26/80 [00:30<01:02,  1.16s/it]Evaluating:  34%|███▍      | 27/80 [00:31<01:01,  1.16s/it]Evaluating:  35%|███▌      | 28/80 [00:32<01:00,  1.16s/it]Evaluating:  36%|███▋      | 29/80 [00:33<00:59,  1.16s/it]Evaluating:  38%|███▊      | 30/80 [00:35<00:58,  1.16s/it]Evaluating:  39%|███▉      | 31/80 [00:36<00:56,  1.16s/it]Evaluating:  40%|████      | 32/80 [00:37<00:55,  1.16s/it]Evaluating:  41%|████▏     | 33/80 [00:38<00:54,  1.16s/it]Evaluating:  42%|████▎     | 34/80 [00:39<00:53,  1.16s/it]Evaluating:  44%|████▍     | 35/80 [00:40<00:52,  1.16s/it]Evaluating:  45%|████▌     | 36/80 [00:42<00:51,  1.16s/it]Evaluating:  46%|████▋     | 37/80 [00:43<00:49,  1.16s/it]Evaluating:  48%|████▊     | 38/80 [00:44<00:48,  1.16s/it]Evaluating:  49%|████▉     | 39/80 [00:45<00:47,  1.16s/it]Evaluating:  50%|█████     | 40/80 [00:46<00:46,  1.16s/it]Evaluating:  51%|█████▏    | 41/80 [00:47<00:45,  1.16s/it]Evaluating:  52%|█████▎    | 42/80 [00:49<00:44,  1.16s/it]Evaluating:  54%|█████▍    | 43/80 [00:50<00:43,  1.16s/it]Evaluating:  55%|█████▌    | 44/80 [00:51<00:41,  1.16s/it]Evaluating:  56%|█████▋    | 45/80 [00:52<00:40,  1.16s/it]Evaluating:  57%|█████▊    | 46/80 [00:53<00:39,  1.16s/it]Evaluating:  59%|█████▉    | 47/80 [00:54<00:38,  1.16s/it]Evaluating:  60%|██████    | 48/80 [00:56<00:37,  1.16s/it]Evaluating:  61%|██████▏   | 49/80 [00:57<00:36,  1.16s/it]Evaluating:  62%|██████▎   | 50/80 [00:58<00:34,  1.16s/it]Evaluating:  64%|██████▍   | 51/80 [00:59<00:33,  1.16s/it]Evaluating:  65%|██████▌   | 52/80 [01:00<00:32,  1.16s/it]Evaluating:  66%|██████▋   | 53/80 [01:01<00:31,  1.16s/it]Evaluating:  68%|██████▊   | 54/80 [01:03<00:30,  1.16s/it]Evaluating:  69%|██████▉   | 55/80 [01:04<00:29,  1.16s/it]Evaluating:  70%|███████   | 56/80 [01:05<00:27,  1.16s/it]Evaluating:  71%|███████▏  | 57/80 [01:06<00:26,  1.16s/it]Evaluating:  72%|███████▎  | 58/80 [01:07<00:25,  1.16s/it]Evaluating:  74%|███████▍  | 59/80 [01:08<00:24,  1.16s/it]Evaluating:  75%|███████▌  | 60/80 [01:10<00:23,  1.16s/it]Evaluating:  76%|███████▋  | 61/80 [01:11<00:22,  1.16s/it]Evaluating:  78%|███████▊  | 62/80 [01:12<00:20,  1.16s/it]Evaluating:  79%|███████▉  | 63/80 [01:13<00:19,  1.16s/it]Evaluating:  80%|████████  | 64/80 [01:14<00:18,  1.16s/it]Evaluating:  81%|████████▏ | 65/80 [01:15<00:17,  1.16s/it]Evaluating:  82%|████████▎ | 66/80 [01:17<00:16,  1.16s/it]Evaluating:  84%|████████▍ | 67/80 [01:18<00:15,  1.16s/it]Evaluating:  85%|████████▌ | 68/80 [01:19<00:13,  1.17s/it]Evaluating:  86%|████████▋ | 69/80 [01:20<00:12,  1.17s/it]Evaluating:  88%|████████▊ | 70/80 [01:21<00:11,  1.17s/it]Evaluating:  89%|████████▉ | 71/80 [01:22<00:10,  1.17s/it]Evaluating:  90%|█████████ | 72/80 [01:24<00:09,  1.17s/it]Evaluating:  91%|█████████▏| 73/80 [01:25<00:08,  1.17s/it]Evaluating:  92%|█████████▎| 74/80 [01:26<00:06,  1.16s/it]Evaluating:  94%|█████████▍| 75/80 [01:27<00:05,  1.16s/it]Evaluating:  95%|█████████▌| 76/80 [01:28<00:04,  1.16s/it]Evaluating:  96%|█████████▋| 77/80 [01:29<00:03,  1.16s/it]Evaluating:  98%|█████████▊| 78/80 [01:31<00:02,  1.16s/it]Evaluating:  99%|█████████▉| 79/80 [01:32<00:01,  1.16s/it]Evaluating: 100%|██████████| 80/80 [01:33<00:00,  1.08s/it]Evaluating: 100%|██████████| 80/80 [01:33<00:00,  1.16s/it]
+INFO:src.evaluation:Writing predictions to: /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/predictions.json
+INFO:src.evaluation:Writing nbest to: /workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-5772/nbest_predictions.json
+done
