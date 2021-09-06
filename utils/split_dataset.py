@@ -10,9 +10,9 @@ if __name__ == '__main__':
     fincausal_data_path = Path(os.environ.get('FINCAUSAL_DATA_PATH',
                                               os.path.dirname(os.path.realpath(sys.argv[0])) + '/../data'))
 
-    input_file = fincausal_data_path / "fnp2020-fincausal-task2.csv"
-    train_output = fincausal_data_path / "fnp2020-train.csv"
-    dev_output = fincausal_data_path / "fnp2020-eval.csv"
+    input_file = fincausal_data_path / "fnp2020-train-full.csv"
+    train_output = fincausal_data_path / "fnp2020-train-full-train.csv"
+    dev_output = fincausal_data_path / "fnp2020-train-full-eva.csv"
     size = 0.1
     seed = 42
 

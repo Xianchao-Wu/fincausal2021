@@ -71,12 +71,14 @@ class FinCausalExample:
 
         # Start and end positions only has a value during evaluation.
         if cause_start_position_character is not None:
+            cause_start_position_character = int(cause_start_position_character)
             assert (cause_start_position_character + len(cause_text) == cause_end_position_character)
             self.start_cause_position = char_to_word_offset[cause_start_position_character]
             self.end_cause_position = char_to_word_offset[
                 min(cause_start_position_character + len(cause_text) - 1, len(char_to_word_offset) - 1)
             ]
         if effect_start_position_character is not None:
+            effect_start_position_character = int(effect_start_position_character)
             self.start_effect_position = char_to_word_offset[effect_start_position_character]
             assert (effect_start_position_character + len(effect_text) == effect_end_position_character)
             self.end_effect_position = char_to_word_offset[

@@ -228,7 +228,11 @@ def evaluate(truth, predict, classes):
         for t in section[0]:
             best = None
             for p in candidates:
-                f1 = metrics.f1_score(t, p, labels=classes, average='weighted', zero_division=0)
+                f1 = 0.0
+                try:
+                    f1 = metrics.f1_score(t, p, labels=classes, average='weighted', zero_division=0)
+                except:
+                    f1 = 0.0
                 if best is None or f1 > best[1]:
                     best = (p, f1)
             # Use best to add to global evaluation

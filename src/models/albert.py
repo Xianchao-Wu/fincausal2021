@@ -43,6 +43,7 @@ class AlbertForCauseEffect(AlbertPreTrainedModel):
             start_effect_positions=None,
             end_effect_positions=None,
     ):
+        #import ipdb; ipdb.set_trace()
         albert_output = self.albert(
             input_ids=input_ids,
             attention_mask=attention_mask,

@@ -52,19 +52,61 @@ if __name__ == '__main__':
     )
 
     parser.add_argument(
+        "--evaset",
+        default="",
+        required=False,
+        help="evaluation set, only name is fine and should be in ./data/"
+    )
+
+    parser.add_argument(
         "--test",
         default=False,
         required=False,
         action="store_true",
         help="Flag to specify if the model should generate predictions on the train file",
     )
+    parser.add_argument(
+        "--model",
+        default="AlbertSquad",
+        required=False,
+        help="name of pretrained model, such as AlbertSquad, AlbertxxlargeSquad2",
+    )
+    parser.add_argument(
+        "--gpu",
+        default=0,
+        required=False,
+        help="gpu index to be used"
+    )
+    parser.add_argument(
+        "--full",
+        default=False,
+        required=False,
+        action="store_true",
+        help="is use all the data for training, default=False"
+    )
+    parser.add_argument(
+        "--cpt",
+        default="",
+        required=False,
+        help="checkpoint path of the fine-tuned model for testing or continue fine-tuning",
+    )
     args = parser.parse_args()
     assert args.train or args.eval or args.test, \
         "At least one task needs to be selected by passing --train, --eval or --test"
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:{}".format(args.gpu) if torch.cuda.is_available() else "cpu")
 
-    model_config = ModelConfigurations.RoBERTaSquadLarge
+    #model_config = ModelConfigurations.RoBERTaSquadLarge
+    model_config = ModelConfigurations.AlbertSquad
+    if args.model == 'AlbertxxlargeSquad2':
+        model_config = ModelConfigurations.AlbertxxlargeSquad2
+    elif args.model == 'RoBERTaSquadLarge':
+        model_config = ModelConfigurations.RoBERTaSquadLarge
+    elif args.model == 'RoBERTaLarge':
+        model_config = ModelConfigurations.RoBERTaLarge
+    elif args.model == 'BertSquad2':
+        model_config = ModelConfigurations.BertSquad2
+
     run_config = RunConfig()
     run_config.do_train = args.train
     run_config.do_eval = args.eval
@@ -75,18 +117,26 @@ if __name__ == '__main__':
     (MODEL_TYPE, MODEL_NAME_OR_PATH, DO_LOWER_CASE) = model_config.value
 
     fincausal_data_path = Path(os.environ.get('FINCAUSAL_DATA_PATH',
-                                              os.path.dirname(os.path.realpath(sys.argv[0])) + './data'))
+                                              os.path.dirname(os.path.realpath(sys.argv[0])) + '/data'))
     fincausal_output_path = Path(os.environ.get('FINCAUSAL_OUTPUT_PATH',
-                                                os.path.dirname(os.path.realpath(sys.argv[0])) + './output'))
+                                                os.path.dirname(os.path.realpath(sys.argv[0])) + '/output'))
 
-    TRAIN_FILE = fincausal_data_path / "fnp2020-train.csv"
-    EVAL_FILE = fincausal_data_path / "fnp2020-eval.csv"
-    TEST_FILE = fincausal_data_path / "task2.csv"
+    #TRAIN_FILE = fincausal_data_path / "fnp2020-train.csv"
+    #TRAIN_FILE = fincausal_data_path / "fnp2020-train-full-train.csv"
+    TRAIN_FILE = fincausal_data_path / "fnp2020-train-full.csv"
+    if args.full:
+        #TRAIN_FILE = fincausal_data_path / "fnp2020-train-full-train.csv"
+        TRAIN_FILE = fincausal_data_path / "fnp2020-train-full.csv"
+    #EVAL_FILE = fincausal_data_path / "fnp2020-train-full-eva.csv"
+    EVAL_FILE = fincausal_data_path / "fnp2020-train-full.csv"
+    TEST_FILE = fincausal_data_path / "task2.csv" # NOTE
+    #TEST_FILE = fincausal_data_path / "task2.5lines.csv"
 
     if RUN_NAME:
-        OUTPUT_DIR = fincausal_output_path / (MODEL_NAME_OR_PATH + '_' + RUN_NAME)
+        #OUTPUT_DIR = fincausal_output_path / (MODEL_NAME_OR_PATH + '_' + RUN_NAME + '_9to1_full_' + str(args.full))
+        OUTPUT_DIR = fincausal_output_path / (MODEL_NAME_OR_PATH + '_' + RUN_NAME + '_full2full_' + str(args.full))
     else:
-        OUTPUT_DIR = fincausal_output_path / MODEL_NAME_OR_PATH
+        OUTPUT_DIR = fincausal_output_path / (MODEL_NAME_OR_PATH + '_full2full_' + str(args.full))
 
     model_class, tokenizer_class = model_tokenizer_mapping[MODEL_TYPE]
     log_file = initialize_log_dict(model_config=model_config,
@@ -128,6 +178,15 @@ if __name__ == '__main__':
             json.dump(log_file, f, indent=4)
 
     if run_config.do_eval:
+        OUTPUT_DIR = args.cpt
+        OUTPUT_DIR = Path(OUTPUT_DIR)
+        print(OUTPUT_DIR) # checkpoint path
+        #EVAL_FILE = fincausal_data_path / "fnp2020-train-full-eva.csv" # this is 10%
+        EVAL_FILE = fincausal_data_path / "fnp2020-eval.csv" # this is the old 65 samples for run3, run4, and run5
+        if args.evaset and len(args.evaset) > 0:
+            EVAL_FILE = fincausal_data_path / args.evaset
+        print("eval.set={}".format(EVAL_FILE))
+
         tokenizer = tokenizer_class.from_pretrained(str(OUTPUT_DIR), do_lower_case=DO_LOWER_CASE)
         model = model_class.from_pretrained(str(OUTPUT_DIR)).to(device)
 
@@ -139,10 +198,16 @@ if __name__ == '__main__':
                           output_dir=OUTPUT_DIR,
                           run_config=run_config
                           )
+        print(result)
+        print(OUTPUT_DIR)
 
         print("done")
 
     if run_config.do_test:
+        #import ipdb; ipdb.set_trace()
+        OUTPUT_DIR = args.cpt
+        OUTPUT_DIR = Path(OUTPUT_DIR)
+        print(OUTPUT_DIR) # checkpoint path
         tokenizer = tokenizer_class.from_pretrained(str(OUTPUT_DIR), do_lower_case=DO_LOWER_CASE)
         model = model_class.from_pretrained(str(OUTPUT_DIR)).to(device)
 

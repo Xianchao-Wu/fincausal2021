@@ -42,6 +42,7 @@ class RoBERTaForCauseEffect(BertPreTrainedModel):
             start_effect_positions=None,
             end_effect_positions=None,
     ):
+        #import ipdb; ipdb.set_trace()
         bert_output = self.roberta(
             input_ids=input_ids,
             attention_mask=attention_mask,

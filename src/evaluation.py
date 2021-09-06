@@ -85,8 +85,8 @@ def predict(model: Module,
             if model_type in ["xlm", "roberta", "distilbert", "camembert"]:
                 del inputs["token_type_ids"]
 
-            example_indices = batch[3]
-            outputs = model(**inputs)
+            example_indices = batch[3] # tensor([0,1,2,3], device='cuda:3')
+            outputs = model(**inputs) # NOTE important, forward here! start_cause_logits, end_cause_logits, start_effect_logits, end_effect_logits : 4 tensors! each with a shape of [4, 384]!
 
         for i, example_index in enumerate(example_indices):
             eval_feature = features[example_index.item()]
@@ -101,13 +101,14 @@ def predict(model: Module,
             all_results.append(result)
 
     # Compute predictions
+    #import ipdb; ipdb.set_trace()
     predictions = compute_predictions_logits(
-        examples,
-        features,
-        all_results,
-        output_dir,
-        sequence_added_tokens,
-        run_config
+        examples, # FinCausalExample list
+        features, # FinCausalFeatures list
+        all_results, # FinCausalResult list
+        output_dir, # e.g., PosixPath('/workspace/megatron/fincausal2021/Financial-Causality-Extraction/output/elgeish/cs224n-squad2.0-albert-xxlarge-v1_model_run_full_True/checkpoint-7762')
+        sequence_added_tokens, # 2
+        run_config # src.config.RunConfig object
     )
 
     return examples, predictions
@@ -386,7 +387,7 @@ def get_predictions(preliminary_predictions: List[_PrelimPrediction], n_best_siz
     seen_predictions_cause = {}
     seen_predictions_effect = {}
     nbest = []
-    for prediction in preliminary_predictions:
+    for prediction in preliminary_predictions: # 30 elements here! -> pick top-5 as n-best!
         if len(nbest) >= n_best_size:
             break
         feature = features[prediction.feature_index]
@@ -463,7 +464,7 @@ def compute_predictions_logits(
         suffix_index = 0
         if example.example_id.count('.') == 2 and run_config.top_n_sentences:
             suffix_index = int(example.example_id.split('.')[-1])
-        prelim_predictions = filter_impossible_spans(features,
+        prelim_predictions = filter_impossible_spans(features, # predefined limitations! see the original paper of GPe
                                                      unique_id_to_result,
                                                      run_config.n_best_size,
                                                      run_config.max_answer_length,
@@ -473,10 +474,10 @@ def compute_predictions_logits(
                                                      run_config.shared_sentence_heuristic, )
         prelim_predictions = sorted(list(set(prelim_predictions)),
                                     key=lambda x: (x.start_logit_cause + x.end_logit_cause +
-                                                   x.start_logit_effect + x.end_logit_effect),
+                                                   x.start_logit_effect + x.end_logit_effect), # NOTE sum-up of these four scores!
                                     reverse=True)
 
-        nbest = get_predictions(prelim_predictions, run_config.n_best_size, features, example)
+        nbest = get_predictions(prelim_predictions, run_config.n_best_size, features, example) # NOTE important!
 
         # In very rare edge cases we could have no valid predictions. So we
         # just create a none prediction in this case to avoid failure.
@@ -524,6 +525,9 @@ def compute_predictions_logits(
         assert len(nbest_json) >= 1
         if suffix_index > 0:
             suffix_index -= 1
+        # 重要：当suffix_index=0的时候，取的是0号元素；
+        # 然而，当suffix_index>=1的时候，需要取值是suffix_index -= 1
+        # 这个是从N-best构造1-best的关键！！！
         all_predictions[example.example_id] = {"text": nbest_json[suffix_index]["text"],
                                                "cause_text": nbest_json[suffix_index]["cause_text"],
                                                "effect_text": nbest_json[suffix_index]["effect_text"]}

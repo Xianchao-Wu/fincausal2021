@@ -33,12 +33,17 @@ class ModelConfigurations(Enum):
     BertSquad2 = ('bert', 'deepset/bert-large-uncased-whole-word-masking-squad2', True)
     DistilBert = ('distilbert', 'distilbert-base-uncased', True)
     DistilBertSquad = ('distilbert', 'distilbert-base-uncased-distilled-squad', True)
-    RoBERTaSquad = ('roberta', 'deepset/roberta-base-squad2', False)
+    #RoBERTaSquad = ('roberta', 'deepset/roberta-base-squad2', False)
+    #RoBERTaSquadLarge2 = ('roberta', 'deepset/roberta-large-squad2', True) # failed loading tokenizer
+    #RoBERTaSquadLarge2 = ('roberta', 'roberta-large', True) 
+    #RoBERTaSquadLarge2 = ('roberta', 'deepset/roberta-large-squad2', True)
     RoBERTaSquadLarge = ('roberta', 'ahotrod/roberta_large_squad2', False)
     RoBERTa = ('roberta', 'roberta-base', False)
     RoBERTaLarge = ('roberta', 'roberta-large', False)
     XLNetBase = ('xlnet', 'xlnet-base-cased', False)
     AlbertSquad = ('albert', 'twmkn9/albert-base-v2-squad2', True)
+    AlbertxxlargeSquad2 = ('albert', 'elgeish/cs224n-squad2.0-albert-xxlarge-v1', True)
+    #AlbertxxlargeSquad2 = ('albert', 'elgeish/cs224n-squad2.0-albert-xxlarge-v1', True)
 
 
 model_tokenizer_mapping = {
@@ -64,7 +69,7 @@ class RunConfig:
                  differential_lr_ratio: float = 1.0,
                  max_grad_norm: float = 1.0,
                  adam_epsilon: float = 1e-8,
-                 num_train_epochs: int = 5,
+                 num_train_epochs: int = 50,
                  save_model: bool = True,
                  weight_decay: float = 0.0,
                  optimizer_class: torch.optim.Optimizer = AdamW,
