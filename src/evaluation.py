@@ -131,8 +131,12 @@ def evaluate(model: Module,
 
     # Compute the F1 and exact scores.
     results, correct, wrong = compute_metrics(examples, predictions)
-    output_prediction_file_correct = output_dir / "predictions_correct.json"
-    output_prediction_file_wrong = output_dir / "predictions_wrong.json"
+    allnum = len(predictions)
+    correctnum = len(correct)
+    wrongnum = len(wrong)
+
+    output_prediction_file_correct = output_dir / "predictions_correct_all{}_correct{}.json".format(allnum, correctnum)
+    output_prediction_file_wrong = output_dir / "predictions_wrong_all{}_wrong{}.json".format(allnum, wrongnum)
 
     with output_prediction_file_correct.open('w') as writer:
         writer.write(json.dumps(correct, indent=4) + "\n")
@@ -532,10 +536,11 @@ def compute_predictions_logits(
                                                "cause_text": nbest_json[suffix_index]["cause_text"],
                                                "effect_text": nbest_json[suffix_index]["effect_text"]}
         all_nbest_json[example.example_id] = nbest_json
-
-    output_prediction_file = output_dir / "predictions.json"
-    csv_output_prediction_file = output_dir / "predictions.csv"
-    output_nbest_file = output_dir / "nbest_predictions.json"
+    
+    sample_num = len(all_predictions)
+    output_prediction_file = output_dir / "predictions_sample{}.json".format(sample_num)
+    csv_output_prediction_file = output_dir / "predictions_sample{}.csv".format(sample_num)
+    output_nbest_file = output_dir / "nbest_predictions_sample{}.json".format(sample_num)
 
     logger.info("Writing predictions to: %s" % output_prediction_file)
     with open(output_prediction_file, "w") as writer:

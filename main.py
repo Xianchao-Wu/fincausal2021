@@ -198,7 +198,8 @@ if __name__ == '__main__':
                           output_dir=OUTPUT_DIR,
                           run_config=run_config
                           )
-        print(result)
+        cpt = str(OUTPUT_DIR).split('/')[-1]
+        print('FINALOUTPUT={}\t{}\t{}\t{}'.format(result, cpt, args.evaset, OUTPUT_DIR))
         print(OUTPUT_DIR)
 
         print("done")

@@ -1,4 +1,4 @@
-
+# calculate the average loss during training
 import sys
 
 if len(sys.argv) < 2:

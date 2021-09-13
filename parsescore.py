@@ -40,7 +40,6 @@ for aline in sys.stdin:
         resdict[curkey] = newline
 
 for akey in resdict:
-
     print('{}\t{}'.format(akey, resdict[akey]))
 
 
