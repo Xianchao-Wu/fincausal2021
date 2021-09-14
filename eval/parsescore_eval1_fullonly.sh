@@ -10,8 +10,8 @@
 
 tmplog="tmp.eval1.fullonly.log"
 
-python parsescore_eval1_fullonly.py | grep "full2" | sort -k2 -rn | head -n 3 > $tmplog 
-python parsescore_eval1_fullonly.py | grep "full2" | sort -k5 -rn | head -n 3 >> $tmplog 
+python parsescore_eval1_fullonly.py | grep "full2" | sort -k2 -rn | head -n 5 > $tmplog 
+python parsescore_eval1_fullonly.py | grep "full2" | sort -k5 -rn | head -n 5 >> $tmplog 
 
 cat $tmplog | awk 'BEGIN{FS=" "}{print $1}' | sort -u > $tmplog.2keep
 
