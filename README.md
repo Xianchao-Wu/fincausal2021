@@ -8,27 +8,7 @@ This repository contains the supporting code for the FinCausal 2020 submission t
 
 (sample from the [task description: Data Processing and Metrics for FinCausal Shared Task, 2020, Mariko et al.](https://drive.google.com/file/d/1LUTJVj9ItJMZzKvy1LrCTuBK2SITzr1z/view))
 
-The system ranked 2<sup>nd</sup> on the official evaluation board, and reached the following performance in post-evaluation:
-
-#### Post-evaluation performance
-
-|Metric|score|
-|:-------------|:-------------:|
-|weighted-averaged F1|95.01%|
-|Exact matches| 83.34%|
-|weighted-averaged Precision| 95.01%|
-|weighted-averaged Recall| 95.01%|
-
-#### Official evaluation performance
-
-|Metric|score|
-|:-------------|:-------------:|
-|weighted-averaged F1|94.66%|
-|Exact matches| 73.66%|
-|weighted-averaged Precision| 94.66%|
-|weighted-averaged Recall| 94.66%|
-
-The system is based on a RoBERTa span-extraction model (similar to Question Answering architecture), a full description of the system is available in the related system description. If you find this system useful, please cite us:
+please cite the original author of this code:
 
 ```latex
 @inproceedings{
